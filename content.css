@@ -1,0 +1,361 @@
+@font-face {
+    src: url("chrome-extension://haggohakkjhmajkiajlkflhgmopdedhn/fonts/MYRIADPRO-BOLD.OTF");
+    font-family: "MyriadPro-Bold";
+}
+
+@font-face {
+    src: url("chrome-extension://haggohakkjhmajkiajlkflhgmopdedhn/fonts/MYRIADPRO-REGULAR.OTF");
+    font-family: "MyriadPro-Regular";
+}
+
+.highlight-notes-sidebar {
+    position: fixed;
+    width: 25%;
+    height: 100vh;
+    z-index: 15000000000;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 16px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px !important;
+}
+
+.highlight-notes-header {
+    background-color: olivedrab;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.highlight-note-screen {
+    background: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100000000000 !important;
+    animation: darkScreenAppears 0.3s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight-note-pop-up {
+    background-color: white;
+    width: 500px;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: popUpAppears .2s forwards;
+}
+
+.highlight-note-cancel-holder {
+    width: 92%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.highlight-note-cancel-icon {
+    height: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.highlight-note-save-icon {
+    height: 50px;
+    margin-top: 15px;
+}
+
+.highlight-note-text-header {
+    margin-top: 15px;
+    color: #282C35; 
+    font-family: "MyriadPro-Bold";
+}
+
+.highlight-note-text-header span{
+    font-size: 15px;
+}
+
+.highlight-note-cancel-icon:hover, .highlight-note-button:hover {
+    filter: brightness(1.1);
+}
+
+.highlight-note-highlight {
+    width: 80%;
+    height: auto;
+    max-height: 240px;
+    overflow-y: scroll;
+    background-color: #f6f8fe;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: "MyriadPro-Regular", sans-serif;
+    color: #282C35;
+    margin: 15px 0 0 0;
+}
+
+.highlight-note-highlight::-webkit-scrollbar {
+    width: 10px;
+}
+
+.highlight-note-highlight::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: #7d69ee;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    -webkit-border-radius: 10px;
+}
+
+.highlight-notes-options-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.highlight-notes-options-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.highlight-notes-options-button:nth-child(1) {
+    margin-right: 3px;
+}
+
+.highlight-notes-options-button:nth-child(2) {
+    margin-left: 3px;
+}
+
+.highlight-notes-comment-icon, .highlight-notes-tag-icon {
+    width: 26px;
+    height: 26px;
+}
+
+.highlight-notes-tooltip-left, .highlight-notes-tooltip-right {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    text-align: center;
+    background-color: #a496f3;
+    color: white;
+    border-radius: 5px;
+}
+
+.highlight-notes-show-tooltip {
+    display: flex !important;
+}
+
+.highlight-notes-tooltip-left, .highlight-notes-tooltip-right {
+    top: -30px;
+}
+
+.highlight-notes-tooltip-left p, .highlight-notes-tooltip-right p {
+    margin: 0;
+    padding: 3px 5px;
+}
+
+.highlight-notes-tooltip-left div, .highlight-notes-tooltip-right div {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    background-color: #a496f3;
+    transform: rotate(45deg);
+    bottom: -4px;
+    border-radius: 1px;
+}
+
+.highlight-notes-tab-container {
+    width: 80%;
+    border: 2px solid #a496f3;
+    transition: .3s;
+    border-radius: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.highlight-notes-comment-section {
+    width: 100%;
+    display: none;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    resize: none;
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+    overflow-y: auto;
+    height: 100px;
+    font-family: "MyriadPro-Regular", sans-serif;
+}
+
+.highlight-notes-comment-section::-webkit-scrollbar, .highlight-notes-tag-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.highlight-notes-comment-section::-webkit-scrollbar-thumb, .highlight-notes-tag-container::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: #cccbd8;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    -webkit-border-radius: 10px;
+}
+
+.highlight-notes-comment-section::placeholder {
+    font-family: "MyriadPro-Regular", sans-serif;
+    font-size: 13.5px;
+}
+
+.highlight-notes-comment-section:focus {
+    outline: none;
+}
+
+.highlight-notes-tag-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 5px 5px 0px 5px;
+    overflow-y: scroll;
+    max-height: 100px;
+}
+
+.highlight-notes-tag {
+    position: relative;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    margin-right: 4px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(.5);
+    cursor: pointer;
+}
+
+.highlight-notes-tag:hover {
+    filter: brightness(.8); 
+} 
+
+.highlight-notes-tag-selected  {
+    filter: brightness(1) !important;
+}
+
+.highlight-notes-tag p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.highlight-notes-show-tab {
+    display: flex !important;
+}
+
+.highlight-note-button-holder {
+    z-index: 12;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+
+.highlight-note-button {
+    width: 160px;
+    height: 30px;
+    z-index: 13 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+    font-family: "MyriadPro-Regular", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.highlight-note-button p {
+    margin: 0;
+    position: relative;
+    top: 1px;
+}
+
+.highlight-note-affirmative-button {
+    background-color: #a496f3;
+    border: 2px #a496f3 solid;
+    color: white;
+    margin-right: 5px;
+}
+
+.highlight-note-cancel-button {
+    background-color: white;
+    border: 2px solid #cccbd8;
+    color: #cccbd8;
+    margin-left: 5px;
+}
+
+.highlight-note-error-text {
+    margin: 0 0 5px 0;
+    font-size: 14px !important;
+}
+
+@keyframes darkScreenAppears {
+    0% {
+        background:rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+@keyframes darkScreenGone {
+    0% {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    
+    100% {
+        background:rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes popUpAppears {
+    0% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popUpGone {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+}
+
+
+

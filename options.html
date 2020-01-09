@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Highlight Notes</title>
+        <link href="options.css" rel="stylesheet" type="text/css">
+        <link href="mediaquery.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <section id="sidebar">
+            <div id="about">
+                <div id="about-box">
+                    <div id="logo-title">
+                        <img id="highlight-notes-logo" src="images/project-logo-purple -circle.svg">
+                        <h4>Highlight Notes</h4>    
+                    </div>
+                    <div id="sidebar-controls">        
+                        <div id="edit-dot-container">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <img id="expand-button" src="images/expand-icon.svg">
+                    </div>
+                </div>
+            </div>
+            <header id="main-tag" class="selected-tag selected-tag-div">
+                <img src="images/all-icon.svg"> 
+                <h3>All Notes</h2>
+                <input type="text" value="0" disabled="true">
+            </header>
+            <span class="border-line top"></span>
+            <ul id="tag-list">
+            </ul>
+            <div id="tag-warning" class="hide-warning">
+                <p>A tag with this title already exists!</p>
+            </div>
+            <input type="text" id="add-label" placeholder="Add Tag" maxlength="17">
+            <span class="border-line bottom"></span>
+            <div id="folders">
+                <ul id="folders-list">
+                    <li><img src="images/star.svg"><h6>Favorites</h6><input class="tag-number" type="text" value="0"></li>
+                    <li><img src="images/lock.svg"><h6>Archived</h6><input class="tag-number" type="text" value="0"></li>
+                    <li><img src="images/trash-can-icon.svg"><h6>Deleted</h6><input class="tag-number" type="text" value="0"></li>
+                </ul>
+            </div>
+            <div id="masthead">
+                <h3>Created By Serge Rogozin</h3>
+            </div>
+        </section>
+        <section id="main-body">
+            <div id="notes-preview">
+                <header id="preview-search-header">
+                    <input type="search" placeholder="Search Highlights">
+                    <div id="preview-filter"><span>Newest First</span><div id="filter-arrow" class="rotate-up"></div></div>
+                </header>
+                <div id="review-list-div">
+                    <ul id="review-list">
+                        <!--<li class="preview-entry"> 
+                            <div class="preview-entry-header">
+                                <div class="preview-entry-header-details">
+                                    <p class="preview-entry-date">Dec 09 2019</p>
+                                    <p class="preview-entry-time">1:29 PM</p>
+                                </div>
+                                <p class="preview-entry-title">Intro to Grammar gjjfg gfhjgfk hjgfkh jfkgk hj</p>
+                            </div>
+                            <p class="preview-highlight">This year was an important year for everyone because things were finally goingrtretre</p>
+                            <div class="preview-tag-container">
+                                <div class="preview-tag">Scool</div>
+                                <div class="preview-tag">Work</div>
+                                <div class="preview-tag">Fitness</div>
+                                <div class="preview-tag">Web Dev</div>
+                                <div class="preview-tag">Cooking</div>
+                            </div>      
+                        </li>-->
+                    </ul>
+                </div>
+                <div id="add-note-button"></div>
+            </div>
+            <div id="note-area-expanded">
+                <div id="note" class="hide-form">
+                    <div id="note-header">
+                        <div id="note-header-row-one">
+                            <input type="text" id="note-title" value="Title">
+                            <div id="note-icons">
+                                <img src="images/star-gray.svg">
+                                <img src="images/lock-gray.svg">
+                                <img src="images/trash-can-icon-gray.svg">
+                            </div>
+                        </div>
+                        <div id="note-header-row-two">
+                            <p id="date-created"></p>
+                            <span class="hide-form-element"></span>
+                            <p id="date-updated" class="hide-form-element"></p>
+                        </div>
+                    </div>
+                    <div id="note-tag-container">
+                        <div class="note-tag">
+                            <p>School</p>
+                            <img src="images/cancel-icon-white.svg">
+                        </div>
+                    </div>
+                    <p id="note-highlight"></p>
+                    <textarea id="note-comment" placeholder="Enter your comments here..."></textarea>
+                    <div id="save-button">Save</div>
+                </div>
+            </div>
+        </section>
+        <script src="options.js"></script>
+    </body>
+</html>

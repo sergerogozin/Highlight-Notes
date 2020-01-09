@@ -1,0 +1,27 @@
+@media screen and (max-width: 834px) {
+    #note-area-expanded {
+        min-width: 434px;
+        width: calc(100% - 250px - 65px);
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    #sidebar {
+      left: -220px;
+    }
+
+    #main-body {
+        margin-left: 65px;
+        width: calc(100% - 65px);
+    }
+
+    #expand-button {
+        display: inline-block;
+    }
+  }
+
+  @media screen and (min-width: 1051px) {
+    #sidebar {
+      left: 0px;
+    }
+  }

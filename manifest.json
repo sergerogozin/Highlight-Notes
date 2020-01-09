@@ -1,0 +1,39 @@
+{
+    "name": "Highlight Notes",
+    "description": "Highlight Notes is a note-taking extension that allows you to keep track of all the things you find interesting on the internet.",
+    "author": "Serge Rogozin",
+    "version": "1.0",
+    "manifest_version": 2,
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+    "web_accessible_resources": [
+        "images/cancel-icon.svg",
+        "images/project-logo-purple.svg",
+        "images/font-icon-white.svg",
+        "images/font-icon-gray.svg",
+        "images/tag-icon-white.svg",
+        "images/tag-icon-gray.svg",
+        "fonts/MYRIADPRO-BOLD.OTF",
+        "fonts/MYRIADPRO-REGULAR.OTF"
+    ],
+    "browser_action": {
+        "default-icon": "icon16.png",
+        "default_title":  "Highlight Notes"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "css": ["content.css"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "options_page" : "options.html",
+    "permissions": ["storage", "tabs", "contextMenus"]
+}
